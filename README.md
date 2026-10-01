@@ -8,7 +8,7 @@ Each project tag must match a release tag in
 ## Release process
 
 Push a tag matching the upstream release tag, such as `v.2.0.0`. GitHub Actions
-downloads that release's `pico8.bin`, extracts the declared cold-data range,
+downloads `pico8.bin` from that upstream tag, extracts the declared cold-data range,
 builds a manifest and offline bundle, publishes the release assets, then
 rebuilds the Pages `dist/` directory and `versions.json` from published
 releases.
@@ -21,8 +21,8 @@ baseline. Later tags compare against the previous published sidecar. The
 generated manifest uses the same format as the working v2.0.0 bundle, including
 the exact `lookupKey` field.
 
-The tag workflow requires the upstream release to provide an asset named
-`pico8.bin`. Published files are available under `/dist/<tag>/`; the
+The tag workflow reads `pico8.bin` from the upstream repository's tagged tree.
+Published files are available under `/dist/<tag>/`; the
 `/dist/versions.json` index lists retained releases. The offline bundle is
 published alongside the index at `/dist/` root.
 

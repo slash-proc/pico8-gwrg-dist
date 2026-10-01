@@ -28,10 +28,11 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p work/upstream work/current
-          gh release download "${GITHUB_REF_NAME}" \
-            --repo Macs75/pico8_gnw_distro \
-            --pattern pico8.bin \
-            --dir work/upstream
+          gh api --method GET \
+            "repos/Macs75/pico8_gnw_distro/contents/pico8.bin" \
+            -f "ref=${GITHUB_REF_NAME}" \
+            -H "Accept: application/vnd.github.raw+json" \
+            > work/upstream/pico8.bin
           gh api "repos/Macs75/pico8_gnw_distro/commits/${GITHUB_REF_NAME}" \
             --jq .sha > work/upstream/source-commit.txt
           cp work/upstream/pico8.bin work/current/pico8.bin
