@@ -28,14 +28,35 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p work/upstream work/current
-          gh api --method GET \
-            "repos/Macs75/pico8_gnw_distro/contents/pico8.bin" \
-            -f "ref=${GITHUB_REF_NAME}" \
-            -H "Accept: application/vnd.github.raw+json" \
-            > work/upstream/pico8.bin
-          gh api "repos/Macs75/pico8_gnw_distro/commits/${GITHUB_REF_NAME}" \
-            --jq .sha > work/upstream/source-commit.txt
-          cp work/upstream/pico8.bin work/current/pico8.bin
+          curl --fail --silent --show-error --location \
+            "https://api.github.com/repos/Macs75/pico8_gnw_distro/releases/tags/${GITHUB_REF_NAME}" \
+            --output work/upstream/release.json
+          python3 - <<'PY'
+          import fnmatch, json
+          from pathlib import Path
+          release = json.loads(Path('work/upstream/release.json').read_text())
+          assets = [a for a in release['assets'] if fnmatch.fnmatchcase(a['name'], 'pico8_*.zip')]
+          if len(assets) != 1:
+              raise SystemExit(f'expected one pico8_*.zip asset, found {len(assets)}')
+          Path('work/upstream/asset-url.txt').write_text(assets[0]['browser_download_url'])
+          print('Selected upstream asset:', assets[0]['name'])
+          PY
+          curl --fail --silent --show-error --location \
+            "$(cat work/upstream/asset-url.txt)" --output work/upstream/pico8.zip
+          python3 - <<'PY'
+          import zipfile
+          from pathlib import Path
+          with zipfile.ZipFile('work/upstream/pico8.zip') as archive:
+              names = [n for n in archive.namelist() if n.rsplit('/', 1)[-1] == 'pico8.bin']
+              if len(names) != 1:
+                  raise SystemExit(f'expected one pico8.bin in ZIP, found {len(names)}')
+              Path('work/current/pico8.bin').write_bytes(archive.read(names[0]))
+          PY
+          curl --fail --silent --show-error --location \
+            "https://api.github.com/repos/Macs75/pico8_gnw_distro/commits/${GITHUB_REF_NAME}" \
+            --output work/upstream/commit.json
+          python3 -c 'import json; print(json.load(open("work/upstream/commit.json"))["sha"])' \
+            > work/upstream/source-commit.txt
 
       - name: Extract and package
         env:
