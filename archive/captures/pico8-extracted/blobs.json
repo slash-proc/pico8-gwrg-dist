@@ -1,0 +1,55 @@
+{
+  "core_bin": "pico8.bin",
+  "container_version": 3,
+  "header_size": 982,
+  "payload_start": "0x3de",
+  "payload_end": "0x4e806",
+  "trailing_bytes_after_segments": 0,
+  "ro_note": "The cold mapped blob is not embedded in this CORE payload; the paired pico8-ro-live-nor.bin is a device snapshot.",
+  "blobs": [
+    {
+      "file": "pico8-ram-emu-core.bin",
+      "size": 136696,
+      "sha256": "2dcda981f257e5c278a8ff081f2e1430d1a0dfb48ee6ca4300626847ce11d450",
+      "source": "CORE container payload",
+      "segment_index": 0,
+      "region": 0,
+      "file_offset": "0x3de",
+      "bss_size": 0
+    },
+    {
+      "file": "pico8-itcm-core.bin",
+      "size": 46840,
+      "sha256": "7a5cfef65a8e9bfafd412caa2719510cf7ff3087a50d8a4a58fa815da207eaf2",
+      "source": "CORE container payload",
+      "segment_index": 1,
+      "region": 1,
+      "file_offset": "0x219d6",
+      "bss_size": 0
+    },
+    {
+      "file": "pico8-ram-uc-core.bin",
+      "size": 137016,
+      "sha256": "7fbd11f4508ffb6259148bff1e9d00ee8bcf1f73a37cde7aa225dfd2a67f8c28",
+      "source": "CORE container payload",
+      "segment_index": 2,
+      "region": 2,
+      "file_offset": "0x2d0ce",
+      "bss_size": 13384
+    },
+    {
+      "file": "pico8-itcm-live.bin",
+      "size": 46840,
+      "sha256": "9e49e2f8bda46f0b4aaebd3e40d167617707e9cb10e1479d688f7269b032884f",
+      "source": "live ITCM memory, trimmed to CORE ITCM code_size",
+      "captured_from": "captures/pico8-device/itcm-loaded-segment.bin"
+    },
+    {
+      "file": "pico8-ro-live-nor.bin",
+      "size": 107512,
+      "sha256": "4d3a6f37b33414479632ce6d85ce870292999c9a78a7fe66860303567fa0f545",
+      "source": "live NOR snapshot at the log-reported cold-code address; not an original/unpatched .ro source",
+      "captured_from": "captures/pico8-device/cold-code-hint.bin"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "project": "pico8",
+  "title": "PICO-8",
+  "source": {
+    "repo": "Macs75/pico8_gnw_distro",
+    "commit": "011a2df83d8c4d9d69b00cbfaf43023da88d1efb",
+    "ref": "v.2.0.0"
+  },
+  "tools": [],
+  "targets": [
+    {
+      "id": "gnw-retro-go",
+      "platform": "game-and-watch",
+      "label": "Game & Watch (Retro-Go)",
+      "kind": "core",
+      "requiresAbi": {
+        "version": 2,
+        "minSize": 888
+      },
+      "artifacts": [
+        {
+          "filename": "pico8.bin",
+          "bytes": 321542,
+          "sha256": "6feea2826533256b2ce3d5a58e3256aec68a05fd2545d3e52069c220790f6574",
+          "url": "pico8.bin"
+        },
+        {
+          "filename": "pico8.ro",
+          "bytes": 107512,
+          "sha256": "29d90cefe62efc2bef361e5c6b50d398482144126928629c6ad6c551d86a5397",
+          "url": "pico8.ro",
+          "mapped": true,
+          "relocBase": 3203334144,
+          "lookupKey": "cold:pico8:b13aeac5:107512"
+        }
+      ],
+      "systems": [
+        {
+          "id": "pico8",
+          "longName": "PICO-8",
+          "shortName": "PICO-8",
+          "extensions": [
+            ".p8",
+            ".p8.png"
+          ],
+          "browse": "file",
+          "compression": false
+        }
+      ]
+    }
+  ]
+}

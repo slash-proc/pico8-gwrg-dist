@@ -1,0 +1,132 @@
+name: Publish PICO-8 GWRG distribution
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Fetch matching upstream release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p work/upstream work/current
+          gh release download "${GITHUB_REF_NAME}" \
+            --repo Macs75/pico8_gnw_distro \
+            --pattern pico8.bin \
+            --dir work/upstream
+          gh api "repos/Macs75/pico8_gnw_distro/commits/${GITHUB_REF_NAME}" \
+            --jq .sha > work/upstream/source-commit.txt
+          cp work/upstream/pico8.bin work/current/pico8.bin
+
+      - name: Extract and package
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          PREVIOUS_TAG="$(gh release list --repo "${GITHUB_REPOSITORY}" --limit 100 \
+            --json tagName,publishedAt,isDraft \
+            --jq "[.[] | select(.isDraft == false and .publishedAt != null and .tagName != \"${GITHUB_REF_NAME}\")] | sort_by(.publishedAt) | reverse | .[0].tagName // empty")"
+          PREVIOUS_ARGS=()
+          if [ -n "${PREVIOUS_TAG}" ]; then
+            mkdir -p work/previous
+            gh release download "${PREVIOUS_TAG}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --pattern pico8.ro \
+              --dir work/previous
+            PREVIOUS_ARGS+=(--previous-cold-data work/previous/pico8.ro)
+          fi
+
+          python3 scripts/build_pico8_release.py \
+            --core-bin work/current/pico8.bin \
+            --source-ref "${GITHUB_REF_NAME}" \
+            --source-commit "$(cat work/upstream/source-commit.txt)" \
+            --out-dir "dist/${GITHUB_REF_NAME}" \
+            "${PREVIOUS_ARGS[@]}"
+
+      - name: Publish GitHub release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          BUNDLE="pico8-${GITHUB_REF_NAME,,}-bundle.zip"
+          ASSETS=(
+            "dist/${GITHUB_REF_NAME}/manifest.json"
+            "dist/${GITHUB_REF_NAME}/pico8.bin"
+            "dist/${GITHUB_REF_NAME}/pico8.ro"
+            "dist/${BUNDLE}"
+          )
+          if gh release view "${GITHUB_REF_NAME}" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
+            mkdir -p work/existing-release
+            gh release download "${GITHUB_REF_NAME}" --repo "${GITHUB_REPOSITORY}" \
+              --pattern manifest.json --pattern pico8.bin --pattern pico8.ro \
+              --pattern "${BUNDLE}" --dir work/existing-release
+            for asset in manifest.json pico8.bin pico8.ro "${BUNDLE}"; do
+              expected="dist/${GITHUB_REF_NAME}/${asset}"
+              if [ "${asset}" = "${BUNDLE}" ]; then
+                expected="dist/${asset}"
+              fi
+              if ! cmp -s "work/existing-release/${asset}" "${expected}"; then
+                echo "published tag ${GITHUB_REF_NAME} already has different ${asset}" >&2
+                exit 1
+              fi
+            done
+          else
+            gh release create "${GITHUB_REF_NAME}" \
+              --title "PICO-8 ${GITHUB_REF_NAME}" \
+              --notes "PICO-8 core distribution for Game & Watch Retro-Go." \
+              "${ASSETS[@]}"
+          fi
+
+  pages:
+    needs: release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Build dist mirror
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/build_dist.py \
+            --repo "${GITHUB_REPOSITORY}" \
+            --out _site/dist \
+            --retain 5 \
+            --require-tag "${GITHUB_REF_NAME}"
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

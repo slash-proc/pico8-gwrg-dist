@@ -1,0 +1,703 @@
+{
+  "firmware": "v2.0.0-rc12 sd-bank2",
+  "elf": "captures/retro-go-rc12-sd-bank2/retro-go-debug.elf",
+  "abi_address": "0x08100400",
+  "abi_slots": {
+    "odroid_overlay_cache_file_in_flash": {
+      "slot": "0x08100618",
+      "value": "0x0810d849",
+      "expected": "0x0810d849"
+    },
+    "odroid_overlay_cache_file_in_flash_relocate": {
+      "slot": "0x0810061c",
+      "value": "0x0810d865",
+      "expected": "0x0810d865"
+    },
+    "fopen": {
+      "slot": "0x08100488",
+      "value": "0x0812a9bd",
+      "expected": "0x0812a9bd"
+    },
+    "lookup_data_in_flash": {
+      "slot": "0x0810074c",
+      "value": "0x0810f6f5",
+      "expected": "0x0810f6f5"
+    },
+    "store_data_in_flash": {
+      "slot": "0x08100750",
+      "value": "0x0810fa59",
+      "expected": "0x0810fa59"
+    },
+    "store_data_begin": {
+      "slot": "0x08100758",
+      "value": "0x08116115",
+      "expected": "0x08116115"
+    }
+  },
+  "hits": [
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/data/pico8/celeste.p8.png-0.sav",
+      "registers": {
+        "r0": "0x2001fc60",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x2001fc80",
+        "r12": "0x08135460",
+        "sp": "0x2001fc38",
+        "lr": "0x0810dfb7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:53:43.366372+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/data/pico8/celeste.p8.png.sram",
+      "registers": {
+        "r0": "0x30009340",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x00000000",
+        "r12": "0x00000000",
+        "sp": "0x2001fd78",
+        "lr": "0x0810d95b",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:53:43.576880+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/data/pico8.cfg",
+      "registers": {
+        "r0": "0x3000498c",
+        "r1": "0x08131f1c",
+        "r2": "0x00000001",
+        "r3": "0x30004a8b",
+        "r12": "0x0000000a",
+        "sp": "0x2001fa68",
+        "lr": "0x08116f49",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:53:46.435685+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fce0",
+        "r1": "0x08131f1c",
+        "r2": "0x2001fa66",
+        "r3": "0x00000000",
+        "r12": "0x08138bf8",
+        "sp": "0x2001fa28",
+        "lr": "0x081137e7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:53:46.646321+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fce0",
+        "r1": "0x08131f1c",
+        "r2": "0x000003de",
+        "r3": "0x000215f8",
+        "r12": "0x00000000",
+        "sp": "0x2001fa00",
+        "lr": "0x08116935",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:53:46.858667+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fce0",
+        "r1": "0x08131f1c",
+        "r2": "0x000219d6",
+        "r3": "0x0000b6f8",
+        "r12": "0x30002ea0",
+        "sp": "0x2001fa00",
+        "lr": "0x08116935",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:53:47.070350+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fce0",
+        "r1": "0x08131f1c",
+        "r2": "0x0002d0ce",
+        "r3": "0x00021738",
+        "r12": "0x00024b80",
+        "sp": "0x2001fa00",
+        "lr": "0x08116935",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:53:47.283005+00:00"
+    },
+    {
+      "endpoint": "lookup_data_in_flash",
+      "pc": "0x0810f6f4",
+      "text_argument_register": "r0",
+      "text_argument": "cold:pico8:b13aeac5:107512",
+      "registers": {
+        "r0": "0x2001f918",
+        "r1": "0x2001f8f0",
+        "r2": "0x0810f6f5",
+        "r3": "0x0810f6f5",
+        "r12": "0x08135460",
+        "sp": "0x2001f8e0",
+        "lr": "0x24025a4d",
+        "pc": "0x0810f6f4"
+      },
+      "captured_at_utc": "2026-10-01T09:53:47.494241+00:00"
+    },
+    {
+      "endpoint": "store_data_begin",
+      "pc": "0x0810f798",
+      "text_argument_register": "r1",
+      "text_argument": "cold:pico8:b13aeac5:107512",
+      "registers": {
+        "r0": "0x2001f8f4",
+        "r1": "0x2001f918",
+        "r2": "0x0001a3f8",
+        "r3": "0x08116115",
+        "r12": "0x08116115",
+        "sp": "0x2001f8e0",
+        "lr": "0x24025a63",
+        "pc": "0x0810f798"
+      },
+      "captured_at_utc": "2026-10-01T09:53:47.914960+00:00"
+    },
+    {
+      "endpoint": "odroid_overlay_cache_file_in_flash",
+      "pc": "0x0810d848",
+      "text_argument_register": "r0",
+      "text_argument": "/roms/pico8/celeste.p8.png",
+      "registers": {
+        "r0": "0x3000946c",
+        "r1": "0x2001f9b0",
+        "r2": "0x00000000",
+        "r3": "0x0810d849",
+        "r12": "0x00000001",
+        "sp": "0x2001f968",
+        "lr": "0x2403ed7b",
+        "pc": "0x0810d848"
+      },
+      "captured_at_utc": "2026-10-01T09:53:49.572968+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/roms/pico8/celeste.p8.png",
+      "registers": {
+        "r0": "0x3000946c",
+        "r1": "0x08131f1c",
+        "r2": "0x2001f8e0",
+        "r3": "0x2001f8d8",
+        "r12": "0x08138bf8",
+        "sp": "0x2001b870",
+        "lr": "0x0810f48b",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:53:49.994384+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/roms/pico8/celeste.p8.png",
+      "registers": {
+        "r0": "0x3000946c",
+        "r1": "0x24040e10",
+        "r2": "0x00000000",
+        "r3": "0x0812a9bd",
+        "r12": "0x0000064f",
+        "sp": "0x2001f6a8",
+        "lr": "0x9011728b",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:53:51.027315+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/data/pico8/cstore/__8a0f3f2c55c65f9b744d13a7525b12c6f1b8bfb7.p8",
+      "registers": {
+        "r0": "0x2001f708",
+        "r1": "0x24040e10",
+        "r2": "0x00000000",
+        "r3": "0x0812a9bd",
+        "r12": "0x0000000a",
+        "sp": "0x2001f700",
+        "lr": "0x901172f7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:53:51.238239+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8_stub.bin",
+      "registers": {
+        "r0": "0x2001fae0",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x2001faf5",
+        "r12": "0x0000000a",
+        "sp": "0x2001faa8",
+        "lr": "0x081137e7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:54:04.496026+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fae0",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x2001faf0",
+        "r12": "0x0000000a",
+        "sp": "0x2001faa8",
+        "lr": "0x081137e7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:54:10.190604+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8_stub.bin",
+      "registers": {
+        "r0": "0x2001fad0",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x2001fae5",
+        "r12": "0x0000000a",
+        "sp": "0x2001fa88",
+        "lr": "0x081137e7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:54:12.089033+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fad0",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x2001fae0",
+        "r12": "0x0000000a",
+        "sp": "0x2001fa88",
+        "lr": "0x081137e7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:54:17.777398+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x3000608c",
+        "r1": "0x08131a0d",
+        "r2": "0x0000000c",
+        "r3": "0x30005b8c",
+        "r12": "0x30002ea0",
+        "sp": "0x2001fec0",
+        "lr": "0x08118b63",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:54:17.988905+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/covers/pico8/celeste.p8.img",
+      "registers": {
+        "r0": "0x30009268",
+        "r1": "0x08131f1c",
+        "r2": "0x80000000",
+        "r3": "0x00000000",
+        "r12": "0x0000000a",
+        "sp": "0x2001fcf8",
+        "lr": "0x08110595",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:54:18.199819+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x3000608c",
+        "r1": "0x08131a0d",
+        "r2": "0x0000000c",
+        "r3": "0x30005b8c",
+        "r12": "0x30002ea0",
+        "sp": "0x2001fec0",
+        "lr": "0x08118b63",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:54:20.098412+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8_stub.bin",
+      "registers": {
+        "r0": "0x2001fae0",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x2001faf5",
+        "r12": "0x0000000a",
+        "sp": "0x2001faa8",
+        "lr": "0x081137e7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:19.486178+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fae0",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x2001faf0",
+        "r12": "0x0000000a",
+        "sp": "0x2001faa8",
+        "lr": "0x081137e7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:25.177676+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8_stub.bin",
+      "registers": {
+        "r0": "0x2001fad0",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x2001fae5",
+        "r12": "0x0000000a",
+        "sp": "0x2001fa88",
+        "lr": "0x081137e7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:27.076047+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fad0",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x2001fae0",
+        "r12": "0x0000000a",
+        "sp": "0x2001fa88",
+        "lr": "0x081137e7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:32.761576+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x3000608c",
+        "r1": "0x08131a0d",
+        "r2": "0x0000000c",
+        "r3": "0x30005b8c",
+        "r12": "0x30002ea0",
+        "sp": "0x2001fec0",
+        "lr": "0x08118b63",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:47.101957+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/covers/pico8/celeste.p8.img",
+      "registers": {
+        "r0": "0x30009318",
+        "r1": "0x08131f1c",
+        "r2": "0x80000000",
+        "r3": "0x00000000",
+        "r12": "0x0000000a",
+        "sp": "0x2001fcf8",
+        "lr": "0x08110595",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:47.314676+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/data/pico8/celeste.p8.png-0.sav",
+      "registers": {
+        "r0": "0x2001fc60",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x2001fc80",
+        "r12": "0x08135460",
+        "sp": "0x2001fc38",
+        "lr": "0x0810dfb7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:49.381327+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/data/pico8/celeste.p8.png.sram",
+      "registers": {
+        "r0": "0x30009340",
+        "r1": "0x08131f1c",
+        "r2": "0x00000000",
+        "r3": "0x00000000",
+        "r12": "0x00000000",
+        "sp": "0x2001fd78",
+        "lr": "0x0810d95b",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:49.592983+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/data/pico8.cfg",
+      "registers": {
+        "r0": "0x3000498c",
+        "r1": "0x08131f1c",
+        "r2": "0x00000001",
+        "r3": "0x30004a8b",
+        "r12": "0x0000000a",
+        "sp": "0x2001fa68",
+        "lr": "0x08116f49",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:53.770850+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fce0",
+        "r1": "0x08131f1c",
+        "r2": "0x2001fa66",
+        "r3": "0x00000000",
+        "r12": "0x08138bf8",
+        "sp": "0x2001fa28",
+        "lr": "0x081137e7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:53.981761+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fce0",
+        "r1": "0x08131f1c",
+        "r2": "0x000003de",
+        "r3": "0x000215f8",
+        "r12": "0x00000000",
+        "sp": "0x2001fa00",
+        "lr": "0x08116935",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:54.192443+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fce0",
+        "r1": "0x08131f1c",
+        "r2": "0x000219d6",
+        "r3": "0x0000b6f8",
+        "r12": "0x30002ea0",
+        "sp": "0x2001fa00",
+        "lr": "0x08116935",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:54.403298+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/cores/pico8.bin",
+      "registers": {
+        "r0": "0x2001fce0",
+        "r1": "0x08131f1c",
+        "r2": "0x0002d0ce",
+        "r3": "0x00021738",
+        "r12": "0x00024b80",
+        "sp": "0x2001fa00",
+        "lr": "0x08116935",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:54.615411+00:00"
+    },
+    {
+      "endpoint": "lookup_data_in_flash",
+      "pc": "0x0810f6f4",
+      "text_argument_register": "r0",
+      "text_argument": "cold:pico8:b13aeac5:107512",
+      "registers": {
+        "r0": "0x2001f918",
+        "r1": "0x2001f8f0",
+        "r2": "0x0810f6f5",
+        "r3": "0x0810f6f5",
+        "r12": "0x08135460",
+        "sp": "0x2001f8e0",
+        "lr": "0x24025a4d",
+        "pc": "0x0810f6f4"
+      },
+      "captured_at_utc": "2026-10-01T09:55:55.027472+00:00"
+    },
+    {
+      "endpoint": "store_data_begin",
+      "pc": "0x0810f798",
+      "text_argument_register": "r1",
+      "text_argument": "cold:pico8:b13aeac5:107512",
+      "registers": {
+        "r0": "0x2001f8f4",
+        "r1": "0x2001f918",
+        "r2": "0x0001a3f8",
+        "r3": "0x08116115",
+        "r12": "0x08116115",
+        "sp": "0x2001f8e0",
+        "lr": "0x24025a63",
+        "pc": "0x0810f798"
+      },
+      "captured_at_utc": "2026-10-01T09:55:55.449649+00:00"
+    },
+    {
+      "endpoint": "odroid_overlay_cache_file_in_flash",
+      "pc": "0x0810d848",
+      "text_argument_register": "r0",
+      "text_argument": "/roms/pico8/celeste.p8.png",
+      "registers": {
+        "r0": "0x3000946c",
+        "r1": "0x2001f9b0",
+        "r2": "0x00000000",
+        "r3": "0x0810d849",
+        "r12": "0x00000e42",
+        "sp": "0x2001f968",
+        "lr": "0x2403ed7b",
+        "pc": "0x0810d848"
+      },
+      "captured_at_utc": "2026-10-01T09:55:56.907662+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/roms/pico8/celeste.p8.png",
+      "registers": {
+        "r0": "0x3000946c",
+        "r1": "0x08131f1c",
+        "r2": "0x2001f8e0",
+        "r3": "0x2001f8d8",
+        "r12": "0x08138bf8",
+        "sp": "0x2001b870",
+        "lr": "0x0810f48b",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:57.330168+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/roms/pico8/celeste.p8.png",
+      "registers": {
+        "r0": "0x3000946c",
+        "r1": "0x24040e10",
+        "r2": "0x00000000",
+        "r3": "0x0812a9bd",
+        "r12": "0x00000002",
+        "sp": "0x2001f6a8",
+        "lr": "0x9011728b",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:58.788521+00:00"
+    },
+    {
+      "endpoint": "fopen",
+      "pc": "0x0812a9bc",
+      "text_argument_register": "r0",
+      "text_argument": "/data/pico8/cstore/__8a0f3f2c55c65f9b744d13a7525b12c6f1b8bfb7.p8",
+      "registers": {
+        "r0": "0x2001f708",
+        "r1": "0x24040e10",
+        "r2": "0x00000000",
+        "r3": "0x0812a9bd",
+        "r12": "0x0000000a",
+        "sp": "0x2001f700",
+        "lr": "0x901172f7",
+        "pc": "0x0812a9bc"
+      },
+      "captured_at_utc": "2026-10-01T09:55:58.999670+00:00"
+    }
+  ],
+  "vtor": "0x08100000"
+}

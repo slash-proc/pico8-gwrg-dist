@@ -1,0 +1,69 @@
+{
+  "firmware": "v2.0.0-rc12 sd-bank2",
+  "after_segment_load_breakpoint": "0x08113e58",
+  "watchpoints": [
+    {
+      "label": "RAM_EMU cold pointer",
+      "address": "0x2404b0bc"
+    },
+    {
+      "label": "RAM_UC cold base ref 0",
+      "address": "0x24025c38"
+    },
+    {
+      "label": "RAM_UC cold base ref 1",
+      "address": "0x24025c3c"
+    }
+  ],
+  "events": [
+    {
+      "pc": "0x24025b02",
+      "registers": {
+        "r0": "0xd1210000",
+        "r1": "0xbeef0000",
+        "r2": "0x90100000",
+        "r3": "0x2404b0c0",
+        "r12": "0x00000001",
+        "lr": "0x2404b0d4"
+      },
+      "watched_values": [
+        {
+          "label": "RAM_EMU cold pointer",
+          "address": "0x2404b0bc",
+          "value_when_halted": "0x901108b5"
+        },
+        {
+          "label": "RAM_UC cold base ref 0",
+          "address": "0x24025c38",
+          "value_when_halted": "0xbeef0000"
+        },
+        {
+          "label": "RAM_UC cold base ref 1",
+          "address": "0x24025c3c",
+          "value_when_halted": "0xbeef0000"
+        }
+      ]
+    }
+  ],
+  "handoff_values": [
+    {
+      "label": "RAM_EMU cold pointer",
+      "address": "0x2404b0bc",
+      "expected_source": "0xbef008b5",
+      "value_at_handoff": "0xbef008b5"
+    },
+    {
+      "label": "RAM_UC cold base ref 0",
+      "address": "0x24025c38",
+      "expected_source": "0xbeef0000",
+      "value_at_handoff": "0xbeef0000"
+    },
+    {
+      "label": "RAM_UC cold base ref 1",
+      "address": "0x24025c3c",
+      "expected_source": "0xbeef0000",
+      "value_at_handoff": "0xbeef0000"
+    }
+  ],
+  "captured_at_utc": "2026-10-01T09:21:52.612755+00:00"
+}

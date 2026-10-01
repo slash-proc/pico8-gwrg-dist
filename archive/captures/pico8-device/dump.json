@@ -1,0 +1,47 @@
+{
+  "method": "gnwmanager OpenOCDBackend.read_memory",
+  "device_writes": false,
+  "itcm_is_full_window_not_trimmed_blob": true,
+  "ram_addresses_from": "game-and-watch-retro-go-sd shared linker regions",
+  "ram_payload_sizes_from": "pico8.bin CORE v3 segment table",
+  "ram_bss_dumped_separately": true,
+  "cold_address_and_size_are_log_hints": true,
+  "dumps": [
+    {
+      "file": "itcm-window.bin",
+      "address": "0x00000000",
+      "size": 65536,
+      "sha256": "c7901e34a07e02c9784a6726925b9e04ab9810c5d491de6ba9498031cdd88b54"
+    },
+    {
+      "file": "ram-emu-loaded-code.bin",
+      "address": "0x2404b000",
+      "size": 136696,
+      "sha256": "89e05a6f5b85ccfd15f53c86295e4550c012eb9b1fc7a4b291140886aaad6133"
+    },
+    {
+      "file": "ram-uc-loaded-code.bin",
+      "address": "0x24025800",
+      "size": 137016,
+      "sha256": "1dfaa398f3868de7c5290ab0eb975dfc5fe064c0f427000495cb85849bc944e3"
+    },
+    {
+      "file": "ram-uc-loaded-bss.bin",
+      "address": "0x24046f38",
+      "size": 13384,
+      "sha256": "5a393cfe4b152dbfef040889ee5e3fb462ce661c5845293029236da2dd67c264"
+    },
+    {
+      "file": "cold-code-hint.bin",
+      "address": "0x90100000",
+      "size": 107512,
+      "sha256": "4d3a6f37b33414479632ce6d85ce870292999c9a78a7fe66860303567fa0f545"
+    },
+    {
+      "file": "nor-context.bin",
+      "address": "0x900f0000",
+      "size": 238584,
+      "sha256": "3272a81aaab8736daf7bf14ca6529addccd858a900a3985b0d796a0517315b46"
+    }
+  ]
+}

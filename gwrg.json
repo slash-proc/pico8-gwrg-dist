@@ -1,0 +1,16 @@
+{
+  "$comment": "PICO-8 cold data is the validated suffix of RAM_EMU; the release script extracts it and writes its exact runtime lookupKey into the generated manifest.",
+  "artifacts": {
+    "pico8.ro": {
+      "$comment": "Linked at 0xBEEF0000; mapped into FrogFS after relocation.",
+      "mapped": true,
+      "relocBase": "0xBEEF0000",
+      "lookupKey": "cold:pico8:b13aeac5:107512"
+    }
+  },
+  "systems": {
+    "pico8": {
+      "compression": false
+    }
+  }
+}

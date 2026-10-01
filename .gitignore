@@ -1,0 +1,12 @@
+/dist/
+/work/
+__pycache__/
+*.py[cod]
+
+# Keep local reverse-engineering evidence in archive/ without publishing
+# upstream binaries, extracted proprietary blobs, or debugger dumps.
+/archive/**/*.bin
+/archive/**/*.ro
+/archive/**/*.zip
+/archive/**/*.elf
+/archive/**/*.map

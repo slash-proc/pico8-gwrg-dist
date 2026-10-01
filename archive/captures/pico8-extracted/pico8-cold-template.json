@@ -1,0 +1,14 @@
+{
+  "source": "pico8.bin",
+  "segment": "RAM_EMU",
+  "segment_file_offset": "0x3de",
+  "segment_offset": "0x7200",
+  "file_offset": "0x75de",
+  "bytes": 107512,
+  "crc32": "b13aeac5",
+  "sha256": "29d90cefe62efc2bef361e5c6b50d398482144126928629c6ad6c551d86a5397",
+  "cache_key": "cold:pico8:b13aeac5:107512",
+  "reloc_base_observed": "0xbeef0000",
+  "reloc_base_status": "observed in device trace; verify for this core build",
+  "output": "captures/pico8-extracted/pico8-cold-template.bin"
+}

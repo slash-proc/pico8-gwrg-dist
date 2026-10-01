@@ -1,0 +1,84 @@
+{
+  "firmware": "v2.0.0-rc12 sd-bank2",
+  "after_segment_load_breakpoint": "0x08113e58",
+  "watchpoints": [
+    {
+      "label": "RAM_UC cold base ref 0",
+      "address": "0x24025c38"
+    },
+    {
+      "label": "RAM_UC cold base ref 1",
+      "address": "0x24025c3c"
+    }
+  ],
+  "events": [
+    {
+      "pc": "0x24025b5e",
+      "registers": {
+        "r0": "0xd1210000",
+        "r1": "0xbeef0000",
+        "r2": "0x90100000",
+        "r3": "0x24025c3c",
+        "r12": "0x00000001",
+        "lr": "0x00000005"
+      },
+      "watched_values": [
+        {
+          "label": "RAM_UC cold base ref 0",
+          "address": "0x24025c38",
+          "value_when_halted": "0x90100000"
+        },
+        {
+          "label": "RAM_UC cold base ref 1",
+          "address": "0x24025c3c",
+          "value_when_halted": "0xbeef0000"
+        }
+      ],
+      "matched_watchpoints": [
+        "RAM_UC cold base ref 0"
+      ]
+    },
+    {
+      "pc": "0x24025b5c",
+      "registers": {
+        "r0": "0xd1210000",
+        "r1": "0xbeef0000",
+        "r2": "0x90100000",
+        "r3": "0x24025c40",
+        "r12": "0x00000001",
+        "lr": "0x00000005"
+      },
+      "watched_values": [
+        {
+          "label": "RAM_UC cold base ref 1",
+          "address": "0x24025c3c",
+          "value_when_halted": "0x90100000"
+        }
+      ],
+      "matched_watchpoints": [
+        "RAM_UC cold base ref 1"
+      ]
+    }
+  ],
+  "values_before_watchpoints": [
+    {
+      "label": "RAM_EMU cold pointer",
+      "address": "0x2404b0bc",
+      "expected_source": "0xbef008b5",
+      "value_at_handoff": "0x901108b5"
+    },
+    {
+      "label": "RAM_UC cold base ref 0",
+      "address": "0x24025c38",
+      "expected_source": "0xbeef0000",
+      "value_at_handoff": "0xbeef0000"
+    },
+    {
+      "label": "RAM_UC cold base ref 1",
+      "address": "0x24025c3c",
+      "expected_source": "0xbeef0000",
+      "value_at_handoff": "0xbeef0000"
+    }
+  ],
+  "captured_at_utc": "2026-10-01T09:24:41.268250+00:00"
+}
